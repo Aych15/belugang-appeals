@@ -62,7 +62,7 @@ exports.handler = async function (event, context) {
                     {
                         name: "Is there anything you would like to say to Staff regarding your unban appeal and ban?",
                         value: payload.staffMessage.slice(0, MAX_EMBED_FIELD_CHARS)
-                    }
+                    },
                     {
                         name: "I acknowledge the information entered here is correct, and I consent to my unban status being moved to declined if I am found to be lying or fabricating evidence.",
                         value: payload.agreementTroll.slice(0, MAX_EMBED_FIELD_CHARS)
