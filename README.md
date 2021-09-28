@@ -18,7 +18,7 @@ By using OAuth2, it ensures users can't forge or fake appeals.
    ![](https://cdn.discordapp.com/attachments/688870664941076514/743301339752169522/unknown.png)
 
 5. Click this button:  
-   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sylveon/discord-ban-appeals)
+   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/OhEmmaGee/discord-ban-appeals)
 
 6. In the web page that shows, login to your GitHub or GitLab account. You will be presented fields to fill:  
    | Field name            | Instructions                                                                                                               |
