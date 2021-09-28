@@ -19,15 +19,17 @@ exports.handler = async function (event, context) {
         const params = new URLSearchParams(event.body);
         payload = {
             banReason: params.get("banReason") || undefined,
-            appealText: params.get("appealText") || undefined,
-            futureActions: params.get("futureActions") || undefined,
+            banMistake: params.get("banMistake") || undefined,
+            staffMessage: params.get("staffMessage") || undefined,
+            agreementTroll: params.get("agreementTroll") || undefined,
             token: params.get("token") || undefined
         };
     }
 
     if (payload.banReason !== undefined &&
-        payload.appealText !== undefined &&
-        payload.futureActions !== undefined && 
+        payload.banMistake !== undefined &&
+        payload.staffMessage !== undefined && 
+        payload.agreementTroll !== undefined &&
         payload.token !== undefined) {
         
         const userInfo = decodeJwt(payload.token);
@@ -42,7 +44,7 @@ exports.handler = async function (event, context) {
         
         const message = {
             embed: {
-                title: "New appeal submitted!",
+                title: "New ban appeal submitted!",
                 timestamp: new Date().toISOString(),
                 fields: [
                     {
@@ -54,12 +56,16 @@ exports.handler = async function (event, context) {
                         value: payload.banReason.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
                     {
-                        name: "Why do you feel you should be unbanned?",
-                        value: payload.appealText.slice(0, MAX_EMBED_FIELD_CHARS)
+                        name: "Do you feel your ban was a mistake? [Yes/No/Other]",
+                        value: payload.banMistake.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
                     {
-                        name: "What will you do to avoid being banned in the future?",
-                        value: payload.futureActions.slice(0, MAX_EMBED_FIELD_CHARS)
+                        name: "Is there anything you would like to say to Staff regarding your unban appeal and ban?",
+                        value: payload.staffMessage.slice(0, MAX_EMBED_FIELD_CHARS)
+                    }
+                    {
+                        name: "I acknowledge the information entered here is correct, and I consent to my unban status being moved to declined if I am found to be lying or fabricating evidence.",
+                        value: payload.agreementTroll.slice(0, MAX_EMBED_FIELD_CHARS)
                     }
                 ]
             }
