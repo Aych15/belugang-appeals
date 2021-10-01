@@ -44,6 +44,7 @@ exports.handler = async function (event, context) {
         
         const message = {
             embed: {
+                content: `<@${userInfo.id}>`,
                 title: "New ban appeal submitted!",
                 timestamp: new Date().toISOString(),
                 fields: [
@@ -93,9 +94,14 @@ exports.handler = async function (event, context) {
                     type: 1,
                     components: [{
                         type: 2,
-                        style: 5,
+                        style: 2,
                         label: "Approve appeal and unban user",
-                        url: `${unbanUrl.toString()}?token=${encodeURIComponent(createJwt(unbanInfo))}`
+                        custom_id: "accept_stage_intial"
+                    }, {
+                        type: 2,
+                        style: 4,
+                        label: "Decline appeal",
+                        custom_id: "decline_stage_intial"
                     }]
                 }];
             }
