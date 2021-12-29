@@ -9,6 +9,11 @@
         <link rel="stylesheet" href="style.css">
 
         <title>BeluGANG Ban Appeal</title>
+        <script>
+            function disable(button) {
+                button.disabled = true
+            }
+        </script>
     </head>
     <body>
         <div class="jumbotron text-center">
@@ -52,7 +57,7 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn" onclick="disable(this);">Submit</button>
                 </div>
             </form>
         </div>
